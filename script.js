@@ -22,3 +22,22 @@ $(function () {
   // TODO: Add code to display the current date in the header of the page.
 });
 // test push flow comment
+
+
+// 1) functionality to display date in real time, soon as page opens +++++++++++++++++++++++++++++++++++++++++
+// q) need a function that will  set up a live date
+// b) need to set it up in func init() so it displays soon as page opens
+// c) if time permits, maybe allow functionality for time-zone selection for this
+
+// 2) need to set up hourly event blocks, enough to span length from 9~5pm (9 blocks)
+// a) need to ensure this page height will allow for scrolling
+// b) give proper sizing to each event block so it looks neat and easily readable +++++++++++++++++++++++++++++
+
+// 3) need to make sure each block is color coded depending on corelation to the hour of the day
+// a) need color for past, present, and future
+// b) needs functionality to register user's timezone
+// c) needs functionality that will interact with user's timezone
+// d) need boolean variables that will toggle based off of user's timezone (past present future)
+// e) need functionality that will highlight current hour block
+// f) need functionality that will use these toggle variables to set block colors
+
