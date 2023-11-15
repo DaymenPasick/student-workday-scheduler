@@ -41,3 +41,19 @@ $(function () {
 // e) need functionality that will highlight current hour block
 // f) need functionality that will use these toggle variables to set block colors
 
+// 4) clicking on any hour block allows for entering and saving of new events +++++++++++++++++++++++++++++++++
+// a) need functionality that will set these blocks as buttons
+// b) need to style/html a prompt or form to fill out for new events
+// c) need buttons to take in user inputs for new events
+// d) need to set these inputs to variables
+// e) need to create object array for packaging of these input variables
+// f) need functionality that will allow for pushing of these variables into the object
+
+
+// 5) need save button in this form for entering events
+// a) save button needs to initiate everything in 4)
+// b) need function that will allow for JSON.string of the object made from  4)
+// c) need functionality that will set this object into local strorage
+
+// 6) events persist when page is refreshed
+// a) need function that will cause local storage mem to persist
