@@ -1,7 +1,7 @@
 // Wrap all code that interacts with the DOM in a call to jQuery to ensure that
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
-$(function () {
+// $(function () {
   // TODO: Add a listener for click events on the save button. This code should
   // use the id in the containing time-block as a key to save the user input in
   // local storage. HINT: What does `this` reference in the click listener
@@ -20,7 +20,7 @@ $(function () {
   // attribute of each time-block be used to do this?
   //
   // TODO: Add code to display the current date in the header of the page.
-});
+// });
 // test push flow comment
 
 
@@ -33,7 +33,7 @@ $(function () {
 // a) need to ensure this page height will allow for scrolling
 // b) give proper sizing to each event block so it looks neat and easily readable +++++++++++++++++++++++++++++
 
-// 3) need to make sure each block is color coded depending on corelation to the hour of the day
+// 3) need to make sure each block is color coded depending on corelation to the hour of the day  (do the color portion last)
 // piece of code that might help with color adoptation   $('element').css('style', 'value/attribute')
 // a) need color for past, present, and future
 // b) needs functionality to register user's timezone
@@ -58,3 +58,5 @@ $(function () {
 
 // 6) events persist when page is refreshed
 // a) need function that will cause local storage mem to persist
+ var now = dayjs('2019-01-25');
+ console.log(now);
