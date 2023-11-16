@@ -34,6 +34,7 @@ $(function () {
 // b) give proper sizing to each event block so it looks neat and easily readable +++++++++++++++++++++++++++++
 
 // 3) need to make sure each block is color coded depending on corelation to the hour of the day
+// piece of code that might help with color adoptation   $('element').css('style', 'value/attribute')
 // a) need color for past, present, and future
 // b) needs functionality to register user's timezone
 // c) needs functionality that will interact with user's timezone
