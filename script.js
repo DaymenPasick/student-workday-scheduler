@@ -58,5 +58,8 @@
 
 // 6) events persist when page is refreshed
 // a) need function that will cause local storage mem to persist
- var now = dayjs('2019-01-25');
- console.log(now);
+ var curretDate = dayjs().format('MM/DD/YYYY');
+ var curretDay = dayjs().format('dddd')
+ $('#currentDate').text(curretDate)
+ $('#currentDay').text(curretDay)
+ 
