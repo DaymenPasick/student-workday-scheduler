@@ -43,6 +43,7 @@
 // f) need functionality that will use these toggle variables to set block colors
 
 // 4) clicking on any hour block allows for entering and saving of new events +++++++++++++++++++++++++++++++++
+//!!!Might be able to use form functionality from Mod5 to facilitate some of this
 // a) need functionality that will set these blocks as buttons
 // b) need to style/html a prompt or form to fill out for new events
 // c) need buttons to take in user inputs for new events
