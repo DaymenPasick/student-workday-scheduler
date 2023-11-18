@@ -59,7 +59,17 @@
 // 6) events persist when page is refreshed
 // a) need function that will cause local storage mem to persist
  var curretDate = dayjs().format('MM/DD/YYYY');
- var curretDay = dayjs().format('dddd')
- $('#currentDate').text(curretDate)
- $('#currentDay').text(curretDay)
+ var curretDay = dayjs().format('dddd');
+ $('#currentDate').text(curretDate);
+ $('#currentDay').text(curretDay);
  
+
+
+//  may be able to use this to manipulate the respective time blocks???
+//  var timeBlockArray = [];
+
+//  for (i = 0; i < length.timeBlockArray; i++) {
+//    var timeBlock =  $('<li>');
+
+//    timeBlock.text(timeBlockArray[i]);
+//  }
