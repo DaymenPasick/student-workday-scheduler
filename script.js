@@ -17,7 +17,7 @@ timeBlockArray = $('.time-block-container').children();
 // console.log($('.time-block-container').children())
 
 for (i = 0; i < timeBlockArray.length; i++) {
-    console.log(timeBlockArray[i])
+    console.log(timeBlockArray[i-3]) //-3 to cutt out the script elements in html
 
 }
 
