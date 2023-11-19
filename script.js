@@ -65,13 +65,10 @@ timeBlockContainer.on('click', '.saveBtn', function(event){
   var clickTarget = $(this).parent();
   var clickTargetId = clickTarget.attr("id");  
 
-  if (clickTargetId.includes(currentHour)) {
-    console.log("Selected Timecard is the current hour");
+  
+    console.log("TimeBlock " + clickTargetId + " clicked");
     console.log(clickTargetId);
-  } else {
-    console.log("Selected Timecard is NOT the current hour");
-    console.log(clickTargetId);
-  }
+
 
 
     //1)need code that will save written value into the timeblocks
