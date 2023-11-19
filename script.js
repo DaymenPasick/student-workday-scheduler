@@ -8,12 +8,18 @@ var timeBlockContainer = $('.time-block-container')
 timeBlockContainer.on('click', '.saveBtn', function(event){
   event.preventDefault();
 
-  console.log($(this).parent());
+
+  var timeBlockID; // will be used to take in the selected time-block container
+                    // and use it as a key for user-input in local storage
+
+  var clickTarget = $(this).parent();
+  var clickTargetId = clickTarget.attr("id");
+
+  console.log(clickTargetId);
  function saveEvent(event) {
   
 
-    var timeBlockID; // will be used to take in the selected time-block container
-                    // and use it as a key for user-input in local storage
+  
     
 
 
