@@ -26,21 +26,22 @@ for (i = 3; i < timeBlockArray.length; i++) {
   timeBlockIdArray = timeBlockIds.split("-");
   timeBlockIdHour = timeBlockIdArray[1]
 
-  console.log(timeBlockIds) 
+  console.log(currentHour) 
   console.log(timeBlockIdHour)
 
-  if (timeBlockIds.includes(currentHour)) {
+  if (timeBlockIdHour === currentHour) {
     console.log('yes!')
     childrenLocations.addClass('present');
-    //need way 
-  } else if (!timeBlockIds.includes(currentHour)) {
-    childrenLocations.addClass('future');
-    
+
+  } else if (timeBlockIdHour < currentHour) {
+    childrenLocations.addClass('past');
+
+  } else if (timeBlockIdHour > currentHour) {
+    childrenLocations.addClass('future')
+
   }
 
 }
-
-
 
 
 
