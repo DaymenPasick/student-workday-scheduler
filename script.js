@@ -22,9 +22,12 @@ for (i = 3; i < timeBlockArray.length; i++) {
   //eventully would like to be able to do this w/o hardcoding the value
   timeBlockChildren = timeBlockArray[i-3]; //-3 to cutt out the script elements in html
   childrenLocations = timeBlockArray.eq(i-3);  //-3 to cutt out the script elements in html
-  timeBlockIds = childrenLocations.attr('id') 
+  timeBlockIds = childrenLocations.attr('id');
+  timeBlockIdArray = timeBlockIds.split("-");
+  timeBlockIdHour = timeBlockIdArray[1]
+
   console.log(timeBlockIds) 
-  console.log(timeBlockIds.split("-"))
+  console.log(timeBlockIdHour)
 
   if (timeBlockIds.includes(currentHour)) {
     console.log('yes!')
