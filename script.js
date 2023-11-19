@@ -1,6 +1,5 @@
-// Wrap all code that interacts with the DOM in a call to jQuery to ensure that
-// the code isn't run until the browser has finished rendering all the elements
-// in the html.
+//Script
+
 
 //Household variables
 var currentHour = dayjs().format('H');
@@ -8,6 +7,10 @@ var currentDate = dayjs().format('MM/DD/YYYY');
 var currentDay = dayjs().format('dddd');
 $('#currentDate').text(currentDate);
 $('#currentDay').text(currentDay);
+
+
+// $(window).on('load', matchTimeBlockToHour());
+//may need this functionality to ensure html loads before jquery executes
 
 
 //function will loop through current time blocks and return their id's
@@ -20,56 +23,47 @@ timeBlockArray =  $('.time-block-container').children();
 for (i = 3; i < timeBlockArray.length; i++) {
   // started interval from 3 to account for the 3 undefined value children returns
   //eventully would like to be able to do this w/o hardcoding the value
-  timeBlockChildren = timeBlockArray[i-3]; //-3 to cutt out the script elements in html
-  childrenLocations = timeBlockArray.eq(i-3);  //-3 to cutt out the script elements in html
-  timeBlockIds = childrenLocations.attr('id');
-  timeBlockIdArray = timeBlockIds.split("-");
-  timeBlockIdHour = timeBlockIdArray[1]
+  var timeBlockChildren = timeBlockArray[i-3]; //-3 to cutt out the script elements in html
+  var childrenLocations = timeBlockArray.eq(i-3);  //-3 to cutt out the script elements in html
+  var timeBlockIds = childrenLocations.attr('id');
+  var timeBlockIdArray = timeBlockIds.split("-");
+  var timeBlockIdHour = timeBlockIdArray[1];
 
-  console.log(currentHour) 
-  console.log(timeBlockIdHour)
+  console.log(currentHour); 
+  console.log(timeBlockIdHour);
 
+
+  //will set past/present/future classes and styling to each timebox relative
+  //to the current time.
   if (timeBlockIdHour === currentHour) {
-    console.log('yes!')
+    console.log('yes!');
     childrenLocations.addClass('present');
 
   } else if (timeBlockIdHour < currentHour) {
     childrenLocations.addClass('past');
 
   } else if (timeBlockIdHour > currentHour) {
-    childrenLocations.addClass('future')
+    childrenLocations.addClass('future');
 
-  }
+  };
 
-}
-
-
-
-
-
-// if (clickTargetId.includes(currentHour)) {
-//   console.log("Selected Timecard is the current hour")
-//   console.log(clickTargetId)
-// } else {
-//   console.log("Selected Timecard is NOT the current hour")
-//   console.log(clickTargetId)
-// }
+};
 
 //for clicking on timeblocks ~~~~needs to be moved eventually
   //if loop will test time-block click target to see if it
   //matches the current military hour. 
-// var clickTarget = $(this).parent();
-// var clickTargetId = clickTarget.attr("id");
-// if (clickTargetId.includes(currentHour)) {
-//   console.log("Selected Timecard is the current hour")
-//   console.log(clickTargetId)
-// } else {
-//   console.log("Selected Timecard is NOT the current hour")
-//   console.log(clickTargetId)
-// }
+var clickTarget = $(this).parent();
+var clickTargetId = clickTarget.attr("id");
+if (clickTargetId.includes(currentHour)) {
+  console.log("Selected Timecard is the current hour");
+  console.log(clickTargetId);
+} else {
+  console.log("Selected Timecard is NOT the current hour");
+  console.log(clickTargetId);
 }
+};
 
-// $(window).on('load', matchTimeBlockToHour());
+
 
 var timeBlockContainer = $('.time-block-container')
 
@@ -80,20 +74,6 @@ timeBlockContainer.on('click', '.saveBtn', function(event){
   // var timeBlockID; // will be used to take in the selected time-block container
                     // and use it as a key for user-input in local storage
 
-
-
-
-
-
-
-
-
-  
-  // TODO: Add code to apply the past, present, or future class to each time
-  // block by comparing the id to the current hour. HINTS: How can the id
-  // attribute of each time-block be used to conditionally add or remove the
-  // past, present, and future classes? How can Day.js be used to get the
-  // current hour in 24-hour time?
   //
   // TODO: Add code to get any user input that was saved in localStorage and set
   // the values of the corresponding textarea elements. HINT: How can the id
