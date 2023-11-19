@@ -63,18 +63,28 @@ var timeBlockContainer = $('.time-block-container')
 timeBlockContainer.on('click', '.saveBtn', function(event){
   event.preventDefault();
   var clickTarget = $(this).parent();
-  var clickTargetId = clickTarget.attr("id");  
+  var clickTargetId = clickTarget.attr("id");
+  //will show in console which timeblock was clicked 
+  console.log("TimeBlock " + clickTargetId + " clicked");
 
-    console.log("TimeBlock " + clickTargetId + " clicked");
-
-
-
-
+  //function to save user input
   function saveUserInput(event) {
     var newEventInput = clickTargetId;
+    var textAreaLocation = clickTarget.children();
+    var newEvent = clickTarget.children();
+
+    console.log("location: +++++++++ " + textAreaLocation)
+
+    if (newEvent === undefined || newEvent === null) {
+      console.log("No event data entered")
+    } else {
+      console.log("New Event Saved: " + newEvent);
+    }
+    
+    
+    
     //console logging save location
     console.log(newEventInput)
-
   }  
 
     saveUserInput();
