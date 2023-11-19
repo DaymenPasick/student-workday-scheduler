@@ -12,12 +12,16 @@ $('#currentDay').text(currentDay);
 
 matchTimeBlockToHour();
 function matchTimeBlockToHour() {
-timeBlockId = "$(";
 timeBlockArray = $('.time-block-container').children();
+
 // console.log($('.time-block-container').children())
 
 for (i = 0; i < timeBlockArray.length; i++) {
-    console.log(timeBlockArray[i-3]) //-3 to cutt out the script elements in html
+
+  timeBlockChildren = timeBlockArray[i-3]; //-3 to cutt out the script elements in html
+  childrenLocations = timeBlockArray.eq(i-3);  //-3 to cutt out the script elements in html
+  timeBlockIds = childrenLocations.attr('id') 
+  console.log(timeBlockIds) 
 
 }
 
