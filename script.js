@@ -14,16 +14,20 @@ timeBlockContainer.on('click', '.saveBtn', function(event){
 
   var clickTarget = $(this).parent();
   var clickTargetId = clickTarget.attr("id");
+  var hourIdMatch = clickTargetId.includes('12')
 
   console.log(clickTargetId);
+  console.log(hourIdMatch);
  function saveEvent(event) {
   
  };
 
-
   var future = true;
   var preset = true;
   var past = true;
+
+
+  
   // TODO: Add code to apply the past, present, or future class to each time
   // block by comparing the id to the current hour. HINTS: How can the id
   // attribute of each time-block be used to conditionally add or remove the
@@ -33,11 +37,12 @@ timeBlockContainer.on('click', '.saveBtn', function(event){
   // TODO: Add code to get any user input that was saved in localStorage and set
   // the values of the corresponding textarea elements. HINT: How can the id
   // attribute of each time-block be used to do this?
-  //
-  // TODO: Add code to display the current date in the header of the page.
 
 
 });
+var currentHour = dayjs().format('h')
+console.log(currentHour);
+
 // test push flow comment
 
 
