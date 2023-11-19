@@ -69,22 +69,16 @@ timeBlockContainer.on('click', '.saveBtn', function(event){
 
   //function to save user input
   function saveUserInput(event) {
-    var newEventInput = clickTargetId;
     var textAreaLocation = clickTarget.children('textarea.description').val();
-    var newEvent = clickTarget.children();
+    var newEvent = textAreaLocation;
 
-    console.log("location: +++++++++ " + textAreaLocation)
-
-    if (newEvent === undefined || newEvent === null) {
+    //if statement will varify text entry into new events
+    if (newEvent === undefined || newEvent === null || newEvent === " " || newEvent === '') {
       console.log("No event data entered")
     } else {
-      console.log("New Event Saved: " + newEvent);
+      console.log("New Event Saved: " + textAreaLocation);
     }
-    
-    
-    
-    //console logging save location
-    // console.log(newEventInput)
+
   }  
 
     saveUserInput();
