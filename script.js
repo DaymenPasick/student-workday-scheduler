@@ -65,10 +65,23 @@ timeBlockContainer.on('click', '.saveBtn', function(event){
   var clickTarget = $(this).parent();
   var clickTargetId = clickTarget.attr("id");  
 
-  
     console.log("TimeBlock " + clickTargetId + " clicked");
-    console.log(clickTargetId);
 
+
+
+
+  function saveUserInput(event) {
+    var newEventInput = clickTargetId;
+    //console logging save location
+    console.log(newEventInput)
+
+  }  
+
+    saveUserInput();
+});
+
+
+  
 
 
     //1)need code that will save written value into the timeblocks
@@ -87,14 +100,5 @@ timeBlockContainer.on('click', '.saveBtn', function(event){
     //d) need code that will take in these object local storage values and set to variables
 
     //f) need code that will write these object value variables onto the timeblocks in html
-
-
-    
-  function saveEvent(event) {
-  
-  };
-
-});
-
 
 
