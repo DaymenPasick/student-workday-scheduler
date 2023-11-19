@@ -8,22 +8,38 @@ var currentDate = dayjs().format('MM/DD/YYYY');
 var currentDay = dayjs().format('dddd');
 $('#currentDate').text(currentDate);
 $('#currentDay').text(currentDay);
+// var future = false;
+// var preset = false;
+// var past = true;
 
 
-matchTimeBlockToHour();
-function matchTimeBlockToHour() {
-timeBlockArray = $('.time-block-container').children();
+//function will loop through current time blocks and return their id's
+findTimeBlockIds();
 
-// console.log($('.time-block-container').children())
 
-for (i = 0; i < timeBlockArray.length; i++) {
+function findTimeBlockIds() {
+timeBlockArray =  $('.time-block-container').children();
 
+for (i = 3; i < timeBlockArray.length; i++) {
+  // started interval from 3 to account for the 3 undefined value children returns
   timeBlockChildren = timeBlockArray[i-3]; //-3 to cutt out the script elements in html
   childrenLocations = timeBlockArray.eq(i-3);  //-3 to cutt out the script elements in html
   timeBlockIds = childrenLocations.attr('id') 
   console.log(timeBlockIds) 
 
+  if (timeBlockIds.includes(currentHour)) {
+    console.log('yes!')
+    childrenLocations.addClass('present');
+
+  }
+
 }
+
+
+
+
+
+
 
 // if (clickTargetId.includes(currentHour)) {
 //   console.log("Selected Timecard is the current hour")
@@ -61,9 +77,7 @@ timeBlockContainer.on('click', '.saveBtn', function(event){
 
 
 
-  var future = false;
-  var preset = false;
-  var past = true;
+
 
 
 
