@@ -10,35 +10,53 @@ $('#currentDate').text(currentDate);
 $('#currentDay').text(currentDay);
 
 
+matchTimeBlockToHour();
+function matchTimeBlockToHour() {
+timeBlockId = "$(";
+console.log('groovy')
+
+// if (clickTargetId.includes(currentHour)) {
+//   console.log("Selected Timecard is the current hour")
+//   console.log(clickTargetId)
+// } else {
+//   console.log("Selected Timecard is NOT the current hour")
+//   console.log(clickTargetId)
+// }
+
+//for clicking on timeblocks ~~~~needs to be moved eventually
+  //if loop will test time-block click target to see if it
+  //matches the current military hour. 
+// var clickTarget = $(this).parent();
+// var clickTargetId = clickTarget.attr("id");
+// if (clickTargetId.includes(currentHour)) {
+//   console.log("Selected Timecard is the current hour")
+//   console.log(clickTargetId)
+// } else {
+//   console.log("Selected Timecard is NOT the current hour")
+//   console.log(clickTargetId)
+// }
+}
+
+// $(window).on('load', matchTimeBlockToHour());
+
 var timeBlockContainer = $('.time-block-container')
 
 timeBlockContainer.on('click', '.saveBtn', function(event){
   event.preventDefault();
 
 
-  var timeBlockID; // will be used to take in the selected time-block container
+  // var timeBlockID; // will be used to take in the selected time-block container
                     // and use it as a key for user-input in local storage
 
- 
-
-  console.log(clickTargetId);
-  // console.log(hourIdMatch);
 
 
-  var future = true;
-  var preset = true;
+
+  var future = false;
+  var preset = false;
   var past = true;
 
-  var clickTarget = $(this).parent();
-  var clickTargetId = clickTarget.attr("id");
-  var hourIdMatch = clickTargetId.includes('12')
-  if (clickTargetId.includes(currentHour)) {
-    console.log("Selected Timecard is the current hour")
-    console.log(clickTargetId)
-  } else {
-    console.log("Selected Timecard is NOT the current hour")
-    console.log(clickTargetId)
-  }
+
+
 
   
   // TODO: Add code to apply the past, present, or future class to each time
@@ -56,6 +74,7 @@ timeBlockContainer.on('click', '.saveBtn', function(event){
 
 });
 console.log("Current Hour: " + currentHour)
+
 
 // test push flow comment
 
