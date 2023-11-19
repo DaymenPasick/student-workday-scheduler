@@ -3,7 +3,7 @@
 // in the html.
 
 //Household variables
-var currentHour = dayjs().format('h')
+var currentHour = dayjs().format('H');
 var currentDate = dayjs().format('MM/DD/YYYY');
 var currentDay = dayjs().format('dddd');
 $('#currentDate').text(currentDate);
@@ -31,10 +31,12 @@ timeBlockContainer.on('click', '.saveBtn', function(event){
 
   var clickTarget = $(this).parent();
   var clickTargetId = clickTarget.attr("id");
-  // var hourIdMatch = clickTargetId.includes('12')
-
-  if (clickTargetId.includes(currentHour, 6)) {
-    console.log(currentHour)
+  var hourIdMatch = clickTargetId.includes('12')
+  if (clickTargetId.includes(currentHour)) {
+    console.log("Selected Timecard is the current hour")
+    console.log(clickTargetId)
+  } else {
+    console.log("Selected Timecard is NOT the current hour")
     console.log(clickTargetId)
   }
 
@@ -53,7 +55,7 @@ timeBlockContainer.on('click', '.saveBtn', function(event){
   };
 
 });
-
+console.log("Current Hour: " + currentHour)
 
 // test push flow comment
 
