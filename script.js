@@ -29,22 +29,25 @@ for (i = 3; i < timeBlockArray.length; i++) {
   var timeBlockIdArray = timeBlockIds.split("-");
   var timeBlockIdHour = timeBlockIdArray[1];
 
-  console.log(currentHour); //for viewing current hour
-  console.log(timeBlockIdHour);//for viewing the hour value within html timeblock ID's
+   //for viewing current hour
+  // console.log(currentHour);
+  //for viewing the hour value within html timeblock ID's
+  // console.log(timeBlockIdHour);
 
 
   //will set past/present/future classes and styling to each timebox relative
-  //to the current time.
+  //to the current time. Will console log accordingly.
   if (timeBlockIdHour === currentHour) {
-    console.log('yes!');
+    console.log("Time-block: " + timeBlockIds + " Set to present");
     childrenLocations.addClass('present');
 
   } else if (timeBlockIdHour < currentHour) {
     childrenLocations.addClass('past');
+    console.log("Time-block: " + timeBlockIds + " Set to past")
 
   } else if (timeBlockIdHour > currentHour) {
     childrenLocations.addClass('future');
-
+    console.log("Time-block: " + timeBlockIds + " Set to future")
   };
 
 };
@@ -54,19 +57,13 @@ for (i = 3; i < timeBlockArray.length; i++) {
 };
 
 
-
+// function to save user input into local
 var timeBlockContainer = $('.time-block-container')
 
 timeBlockContainer.on('click', '.saveBtn', function(event){
   event.preventDefault();
   var clickTarget = $(this).parent();
-  var clickTargetId = clickTarget.attr("id");
-
-//for clicking on timeblocks ~~~~needs to be moved eventually
-  //if loop will test time-block click target to see if it
-  //matches the current military hour. 
-
-  
+  var clickTargetId = clickTarget.attr("id");  
 
   if (clickTargetId.includes(currentHour)) {
     console.log("Selected Timecard is the current hour");
@@ -80,7 +77,7 @@ timeBlockContainer.on('click', '.saveBtn', function(event){
     //1)need code that will save written value into the timeblocks
 
     //a) need to take in input value from user and set to variables
-
+    //=====Might be able to use form functionality from Mod5 to facilitate some of this
     //b) need to have that saved input variables saved onto local storage
 
     //c) need to create object that will take in these local storage values
@@ -93,6 +90,9 @@ timeBlockContainer.on('click', '.saveBtn', function(event){
     //d) need code that will take in these object local storage values and set to variables
 
     //f) need code that will write these object value variables onto the timeblocks in html
+
+
+    
   function saveEvent(event) {
   
   };
@@ -101,39 +101,3 @@ timeBlockContainer.on('click', '.saveBtn', function(event){
 
 
 
-  // var timeBlockID; // will be used to take in the selected time-block container
-                    // and use it as a key for user-input in local storage
-
-  //
-  // TODO: Add code to get any user input that was saved in localStorage and set
-  // the values of the corresponding textarea elements. HINT: How can the id
-  // attribute of each time-block be used to do this?
-
-// test push flow comment
-
-// 4) clicking on any hour block allows for entering and saving of new events +++++++++++++++++++++++++++++++++
-//!!!Might be able to use form functionality from Mod5 to facilitate some of this
-
-
-
-
-
-// 5) need save button in this form for entering events
-// a) save button needs to initiate everything in 4)
-// b) need function that will allow for JSON.string of the object made from  4)
-// c) need functionality that will set this object into local strorage
-
-// 6) events persist when page is refreshed
-// a) need function that will cause local storage mem to persist
-
- 
-
-
-//  may be able to use this to manipulate the respective time blocks???
-//  var timeBlockArray = [];
-
-//  for (i = 0; i < length.timeBlockArray; i++) {
-//    var timeBlock =  $('<li>');
-
-//    timeBlock.text(timeBlockArray[i]);
-//  }
