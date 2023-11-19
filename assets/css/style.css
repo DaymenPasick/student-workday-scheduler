@@ -1,6 +1,7 @@
 body {
   font-family: 'Open Sans', sans-serif;
   font-size: 16px;
+  background-color: rgb(175, 224, 238);
 }
 
 textarea {
@@ -61,4 +62,9 @@ textarea {
 .hero textarea {
   margin-top: 25px;
   margin-bottom: 5px;
+}
+
+.time-card {
+  color: white;
+  background-color: #000000;
 }
