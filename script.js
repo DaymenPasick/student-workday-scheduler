@@ -13,7 +13,13 @@ $('#currentDay').text(currentDay);
 matchTimeBlockToHour();
 function matchTimeBlockToHour() {
 timeBlockId = "$(";
-console.log('groovy')
+timeBlockArray = $('.time-block-container').children();
+// console.log($('.time-block-container').children())
+
+for (i = 0; i < timeBlockArray.length; i++) {
+    console.log(timeBlockArray[i])
+
+}
 
 // if (clickTargetId.includes(currentHour)) {
 //   console.log("Selected Timecard is the current hour")
