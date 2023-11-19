@@ -3,6 +3,13 @@
 // in the html.
 
 //Household variables
+var currentHour = dayjs().format('h')
+var currentDate = dayjs().format('MM/DD/YYYY');
+var currentDay = dayjs().format('dddd');
+$('#currentDate').text(currentDate);
+$('#currentDay').text(currentDay);
+
+
 var timeBlockContainer = $('.time-block-container')
 
 timeBlockContainer.on('click', '.saveBtn', function(event){
@@ -12,21 +19,23 @@ timeBlockContainer.on('click', '.saveBtn', function(event){
   var timeBlockID; // will be used to take in the selected time-block container
                     // and use it as a key for user-input in local storage
 
-  var clickTarget = $(this).parent();
-  var clickTargetId = clickTarget.attr("id");
-  var hourIdMatch = clickTargetId.includes('12')
+ 
 
   console.log(clickTargetId);
-  console.log(hourIdMatch);
+  // console.log(hourIdMatch);
 
 
   var future = true;
   var preset = true;
   var past = true;
 
+  var clickTarget = $(this).parent();
+  var clickTargetId = clickTarget.attr("id");
+  // var hourIdMatch = clickTargetId.includes('12')
 
-  if (clickTargetId) {
-    //will match id to real time date 
+  if (clickTargetId.includes(currentHour, 6)) {
+    console.log(currentHour)
+    console.log(clickTargetId)
   }
 
   
@@ -44,8 +53,7 @@ timeBlockContainer.on('click', '.saveBtn', function(event){
   };
 
 });
-var currentHour = dayjs().format('h')
-console.log(currentHour);
+
 
 // test push flow comment
 
@@ -86,10 +94,7 @@ console.log(currentHour);
 
 // 6) events persist when page is refreshed
 // a) need function that will cause local storage mem to persist
- var currentDate = dayjs().format('MM/DD/YYYY');
- var currentDay = dayjs().format('dddd');
- $('#currentDate').text(currentDate);
-$('#currentDay').text(currentDay);
+
  
 
 
