@@ -70,7 +70,7 @@ timeBlockContainer.on('click', '.saveBtn', function(event){
   //function to save user input
   function saveUserInput(event) {
     var newEventInput = clickTargetId;
-    var textAreaLocation = clickTarget.children();
+    var textAreaLocation = clickTarget.children('textarea.description').val();
     var newEvent = clickTarget.children();
 
     console.log("location: +++++++++ " + textAreaLocation)
@@ -84,7 +84,7 @@ timeBlockContainer.on('click', '.saveBtn', function(event){
     
     
     //console logging save location
-    console.log(newEventInput)
+    // console.log(newEventInput)
   }  
 
     saveUserInput();
