@@ -8,9 +8,6 @@ var currentDate = dayjs().format('MM/DD/YYYY');
 var currentDay = dayjs().format('dddd');
 $('#currentDate').text(currentDate);
 $('#currentDay').text(currentDay);
-// var future = false;
-// var preset = false;
-// var past = true;
 
 
 //function will loop through current time blocks and return their id's
@@ -22,15 +19,20 @@ timeBlockArray =  $('.time-block-container').children();
 
 for (i = 3; i < timeBlockArray.length; i++) {
   // started interval from 3 to account for the 3 undefined value children returns
+  //eventully would like to be able to do this w/o hardcoding the value
   timeBlockChildren = timeBlockArray[i-3]; //-3 to cutt out the script elements in html
   childrenLocations = timeBlockArray.eq(i-3);  //-3 to cutt out the script elements in html
   timeBlockIds = childrenLocations.attr('id') 
   console.log(timeBlockIds) 
+  console.log(timeBlockIds.split("-"))
 
   if (timeBlockIds.includes(currentHour)) {
     console.log('yes!')
     childrenLocations.addClass('present');
-
+    //need way 
+  } else if (!timeBlockIds.includes(currentHour)) {
+    childrenLocations.addClass('future');
+    
   }
 
 }
