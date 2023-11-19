@@ -3,21 +3,21 @@
 // in the html.
 
 //Household variables
-var saveButton = $('#saveBtn')
+var timeBlockContainer = $('.time-block-container')
 
-saveButton.on('click', saveEvent);
+timeBlockContainer.on('click', '.saveBtn', function(event){
+  event.preventDefault();
 
-$(function saveEvent(event) {
+  console.log($(this).parent());
+ function saveEvent(event) {
+  
 
-    // var 
-    event.preventDefault;
+    var timeBlockID; // will be used to take in the selected time-block container
+                    // and use it as a key for user-input in local storage
+    
 
 
 
-
-  // This code should
-  // use the id in the containing time-block as a key to save the user input in
-  // local storage.
   
   
   //HINT: What does `this` reference in the click listener
@@ -36,6 +36,8 @@ $(function saveEvent(event) {
   // attribute of each time-block be used to do this?
   //
   // TODO: Add code to display the current date in the header of the page.
+};
+
 });
 // test push flow comment
 
