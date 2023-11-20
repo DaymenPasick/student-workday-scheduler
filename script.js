@@ -114,12 +114,16 @@ timeBlockContainer.on('click', '.saveBtn', function(event){
   //will iterate through items in local
   function siftLocalStorage() {
     for (i=0; i < localStorage.length; i++){
+      var storageEventValue = localStorage.getItem(localStorage.key(i))
+      console.log("value : " + storageEventValue)
       
     }
 
   }
 
-  console.log(localStorage.getItem(localStorage.key(1)))
+  for (var key in localStorage) {
+    console.log(localStorage.key);
+  }
 
  
     //1)need code that will save written value into the timeblocks
