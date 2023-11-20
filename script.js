@@ -7,6 +7,8 @@ var currentDate = dayjs().format('MM/DD/YYYY');
 var currentDay = dayjs().format('dddd');
 $('#currentDate').text(currentDate);
 $('#currentDay').text(currentDay);
+var timeBlockKey;
+var userInputKey;
 
 
 // $(window).on('load', matchTimeBlockToHour());
@@ -50,6 +52,8 @@ for (i = 3; i < timeBlockArray.length; i++) {
     console.log("Time-block: " + timeBlockIds + " Set to future")
   };
 
+  
+
 };
 
 
@@ -67,24 +71,37 @@ timeBlockContainer.on('click', '.saveBtn', function(event){
   //will show in console which timeblock was clicked 
   console.log("TimeBlock " + clickTargetId + " clicked");
 
-  //function to save user input
-  function saveUserInput(event) {
+  //function to set userInputKey for local storage
+  function getUserInput(event) {
     var textAreaLocation = clickTarget.children('textarea.description').val();
-    var newEvent = textAreaLocation;
-
+    var userInput = textAreaLocation;
+    
     //if statement will varify text entry into new events
-    if (newEvent === undefined || newEvent === null || newEvent === " " || newEvent === '') {
-      console.log("No event data entered")
+    if (userInput === undefined || userInput === null || userInput === " " || userInput === "") {
+      console.log("No Input entered")
     } else {
-      console.log("New Event Saved: " + textAreaLocation);
+      console.log("User Input: " + userInput);
     }
 
+    console.log(textAreaLocation)
+    
+    timeBlockKey = clickTargetId;
+    userInputKey = userInput;
   }  
-
-    saveUserInput();
+ 
+    getUserInput();
+    saveNewEvent();  
 });
 
 
+function saveNewEvent() {
+  localStorage.setItem(timeBlockKey, userInputKey);
+  }
+
+
+
+
+ 
   
 
 
