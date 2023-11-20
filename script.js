@@ -12,6 +12,7 @@ $('#currentDay').text(currentDay);
 
 manipulateTimeBoxes();
 
+
 //function will manipulate display of timeblocks, 
 //as well as set variables according to their html ID's
 function manipulateTimeBoxes() {
@@ -29,16 +30,16 @@ for (i = 3; i < timeBlockArray.length; i++) {
     //will set past/present/future classes and styling to each timebox relative
     //to the current time. Will console log accordingly.
     if (timeBlockIdHour === currentHour) {
-      console.log("Time-block: " + timeBlockIds + " Set to present");
+      // console.log("Time-block: " + timeBlockIds + " Set to present");
       childrenLocations.addClass('present');
 
     } else if (timeBlockIdHour < currentHour) {
       childrenLocations.addClass('past');
-      console.log("Time-block: " + timeBlockIds + " Set to past")
+      // console.log("Time-block: " + timeBlockIds + " Set to past")
 
     } else if (timeBlockIdHour > currentHour) {
       childrenLocations.addClass('future');
-      console.log("Time-block: " + timeBlockIds + " Set to future")
+      // console.log("Time-block: " + timeBlockIds + " Set to future")
     };
 
   };
@@ -61,10 +62,10 @@ timeBlockContainer.on('click', '.saveBtn', function(event){
     //if statement will varify user input into the timeblock text-areas
     if (userInput === undefined || userInput === null || userInput === " " || userInput === "") {
       console.log("No Input Entered")
-      console.log("Clicked Timeblock ID: " + clickTargetId)
+      // console.log("Clicked Timeblock ID: " + clickTargetId)
     } else {
       console.log("User Input: " + userInput);
-      console.log("Clicked Timeblock ID: " + clickTargetId)
+      // console.log("Clicked Timeblock ID: " + clickTargetId)
     }
 
     //puts clicked timeblock and userinput into variables for saveNewItem()
@@ -80,28 +81,38 @@ timeBlockContainer.on('click', '.saveBtn', function(event){
     getUserInput();
     saveNewEvent();
     siftLocalStorage();
-    writeToTextArea();
+    // writeToTextArea();
     
     // getFromLocal() 
 });
  
-function init() {
-  writeToTextArea()
-}
-
-
-
-//will write data into text area
-function writeToTextArea() {
-  eventPrintLocation.val('Placeholder Event')
-}
-   
-
+// function init() {
+//   writeToTextArea()
+// }
 
   //will save to local storage w/ Key:timeblock IDs value:user event input
  function saveNewEvent() {
   localStorage.setItem(timeBlockKey, userInputValue);
   }
+
+  //will write data into text area
+  function writeToTextArea() {
+    eventPrintLocation.val('Placeholder Event')
+  }
+   
+
+  //will iterate through items in local and set its key and value pairs to variables
+  function siftLocalStorage() {
+    for (i=0; i < localStorage.length; i++){
+      var storageEventValue = localStorage.getItem(localStorage.key(i))
+      var storageEventKey = localStorage.key(i)
+      console.log("Storage Event Value("+ i + "): " + storageEventValue)
+      console.log("Storage Event Key("+ i + "): " + storageEventKey)
+      
+    }
+
+  }
+
 
 
   //object to be used for local storage(persisting)
@@ -125,19 +136,7 @@ function writeToTextArea() {
 
 
 
-  //will iterate through items in local
-  function siftLocalStorage() {
-    for (i=0; i < localStorage.length; i++){
-      var storageEventValue = localStorage.getItem(localStorage.key(i))
-      console.log("Storage Return Value("+ i + "): " + storageEventValue)
-      
-    }
 
-  }
-
-  for (var key in localStorage) {
-    console.log(localStorage.key);
-  }
 
  
     //1)need code that will save written value into the timeblocks
