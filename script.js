@@ -7,13 +7,6 @@ var currentDate = dayjs().format('MM/DD/YYYY');
 var currentDay = dayjs().format('dddd');
 $('#currentDate').text(currentDate);
 $('#currentDay').text(currentDay);
-var timeBlockKey;
-var userInputKey;
-
-
-// $(window).on('load', matchTimeBlockToHour());
-//may need this functionality to ensure html loads before jquery executes
-
 
 //function will loop through current time blocks and return their id's
 findTimeBlockIds();
@@ -76,15 +69,14 @@ timeBlockContainer.on('click', '.saveBtn', function(event){
     var textAreaLocation = clickTarget.children('textarea.description').val();
     var userInput = textAreaLocation;
     
-    //if statement will varify text entry into new events
+    //if statement will varify user input into the timeblock text-areas
     if (userInput === undefined || userInput === null || userInput === " " || userInput === "") {
       console.log("No Input entered")
     } else {
       console.log("User Input: " + userInput);
     }
 
-    console.log(textAreaLocation)
-    
+    //puts clicked timeblock and userinput into variables for saveNewItem()
     timeBlockKey = clickTargetId;
     userInputKey = userInput;
   }  
@@ -93,9 +85,9 @@ timeBlockContainer.on('click', '.saveBtn', function(event){
     saveNewEvent();  
 });
 
-
-function saveNewEvent() {
-  localStorage.setItem(timeBlockKey, userInputKey);
+  //will save to local storage w/ Key:timeblock IDs value:user event input
+ function saveNewEvent() {
+  localStorage.setItem("Timeblock: " + timeBlockKey, "New Event: " + userInputKey);
   }
 
 
@@ -123,3 +115,5 @@ function saveNewEvent() {
     //f) need code that will write these object value variables onto the timeblocks in html
 
 
+// $(window).on('load', matchTimeBlockToHour());
+//may need this functionality to ensure html loads before jquery executes
