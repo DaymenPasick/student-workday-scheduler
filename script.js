@@ -78,6 +78,21 @@ timeBlockContainer.on('click', '.saveBtn', function(event){
   }
 
 
+  //object to be used for local storage(persisting)
+  localStorageEventManager = [];
+
+  //will set local user input key and values into variables
+  function getFromLocal() {
+
+  }
+
+  //will push local variables items to the event manager
+  function localToManager() {
+
+
+
+
+  }
 
 
  
