@@ -17,6 +17,7 @@ manipulateTimeBoxes();
 function manipulateTimeBoxes() {
  var timeBlockArray =  $('.time-block-container').children();
 
+ 
 //will set variables via jquery to select html timeblock ID
 for (i = 3; i < timeBlockArray.length; i++) {
   // started interval from 3 to account for the 3 undefined value children returns
@@ -72,26 +73,29 @@ timeBlockContainer.on('click', '.saveBtn', function(event){
     eventPrintLocation = clickTarget.children('textarea.description');
   }  
 
+  
 
-
-  function writeToTextArea() {
-    eventPrintLocation.val('Hello')
-    
-  }
+  
  
     getUserInput();
     saveNewEvent();
+    siftLocalStorage();
     writeToTextArea();
-    siftLocalStorage()
+    
     // getFromLocal() 
 });
-   
-
-
-  //will write data into text area
  
+function init() {
+  writeToTextArea()
+}
 
 
+
+//will write data into text area
+function writeToTextArea() {
+  eventPrintLocation.val('Placeholder Event')
+}
+   
 
 
   //will save to local storage w/ Key:timeblock IDs value:user event input
@@ -125,7 +129,7 @@ timeBlockContainer.on('click', '.saveBtn', function(event){
   function siftLocalStorage() {
     for (i=0; i < localStorage.length; i++){
       var storageEventValue = localStorage.getItem(localStorage.key(i))
-      console.log("value : " + storageEventValue)
+      console.log("Storage Return Value("+ i + "): " + storageEventValue)
       
     }
 
