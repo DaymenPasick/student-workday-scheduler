@@ -9,6 +9,7 @@ $('#currentDate').text(currentDate);
 $('#currentDay').text(currentDay);
 
 
+
 manipulateTimeBoxes();
 
 //function will manipulate display of timeblocks, 
@@ -58,18 +59,29 @@ timeBlockContainer.on('click', '.saveBtn', function(event){
     
     //if statement will varify user input into the timeblock text-areas
     if (userInput === undefined || userInput === null || userInput === " " || userInput === "") {
-      console.log("No Input entered")
+      console.log("No Input Entered")
+      console.log("Clicked Timeblock ID: " + clickTargetId)
     } else {
       console.log("User Input: " + userInput);
+      console.log("Clicked Timeblock ID: " + clickTargetId)
     }
 
     //puts clicked timeblock and userinput into variables for saveNewItem()
     timeBlockKey = clickTargetId;
     userInputValue = userInput;
+    eventPrintLocation = clickTarget.children('textarea.description');
   }  
+
+
+
+  function writeToTextArea() {
+    eventPrintLocation.val('Hello')
+    
+  }
  
     getUserInput();
     saveNewEvent();
+    writeToTextArea();
     siftLocalStorage()
     // getFromLocal() 
 });
@@ -77,9 +89,7 @@ timeBlockContainer.on('click', '.saveBtn', function(event){
 
 
   //will write data into text area
-  function writeToTextArea() {
-
-  }
+ 
 
 
 
