@@ -82,6 +82,11 @@ timeBlockContainer.on('click', '.saveBtn', function(event){
     
     // getFromLocal() 
 });
+
+
+ //array to be used for local storage(persisting)
+ var localStorageEventManager = [];
+ var keyAndValueObject = {}
  
 // function init() {
 //   writeToTextArea()
@@ -102,25 +107,32 @@ timeBlockContainer.on('click', '.saveBtn', function(event){
   function siftLocalStorage() {
     for (i=0; i < localStorage.length; i++){
 
-      var keyAndValueObject = {}
+      
 
+      //will set variables based off local storage input data
       var storageEventValue = localStorage.getItem(localStorage.key(i))
       var storageEventKey = localStorage.key(i)
       // console.log("Storage Event Value("+ i + "): " + storageEventValue)
       // console.log("Storage Event Key("+ i + "): " + storageEventKey)
 
+
+      //this will populate keyAndValueObject using local storage input data
       keyAndValueObject.key = storageEventKey
       keyAndValueObject.value = storageEventValue
-
       console.log(keyAndValueObject)
+
+      pushLocalToEventManager()
     }
-      // console.log(keyAndValueObject)
+    console.log("updated Event Manager Array: " + localStorageEventManager)
+  }
+  
+  //will push local variable object to the event manager
+  function pushLocalToEventManager() {
+    localStorageEventManager.push(keyAndValueObject)
+    
   }
 
-  //array to be used for local storage(persisting)
-  localStorageEventManager = [];
-  var managerObjectKey;
-  var managerObjectValue;
+
 
   //will set local user input key and values into variables
   function getFromLocal() {
@@ -132,11 +144,7 @@ timeBlockContainer.on('click', '.saveBtn', function(event){
     console.log(managerObjectValue)
   }
 
-  //will push local variables items to the event manager
-  function localToManager() {
 
-  }
-  
 
 
 
