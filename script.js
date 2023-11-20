@@ -12,14 +12,16 @@ $('#currentDay').text(currentDay);
 
 manipulateTimeBoxes();
 
+  //====Start Functionality to handle user input data/events===============================================================
 
-//function will manipulate display of timeblocks, 
-//as well as set variables according to their html ID's
+
+  //function will manipulate display of timeblocks, 
+  //as well as set variables according to their html ID's
 function manipulateTimeBoxes() {
  var timeBlockArray =  $('.time-block-container').children();
 
  
-//will set variables via jquery to select html timeblock ID
+  //will set variables via jquery to select html timeblock ID
 for (i = 3; i < timeBlockArray.length; i++) {
   // started interval from 3 to account for the 3 undefined value children returns
   var childrenLocations = timeBlockArray.eq(i-3);  //-3 to cutt out the script elements in html
@@ -46,7 +48,7 @@ for (i = 3; i < timeBlockArray.length; i++) {
 };
 
 
-// function to save user input into local
+  // function to save user input into local
 var timeBlockContainer = $('.time-block-container')
 
 timeBlockContainer.on('click', '.saveBtn', function(event){
@@ -81,8 +83,12 @@ timeBlockContainer.on('click', '.saveBtn', function(event){
     writeToTextArea();
     // getFromLocal() 
 });
+  //====End Functionality to handle user input data/events===============================================================
 
-  //=====Functionality to build and manipulate a persisting local storage array =====================================
+
+
+
+  //=====Start Functionality to build and manipulate a persisting local storage array =====================================
 
  //array to be used for local storage(persisting)
  var localStorageEventManager = [];
@@ -117,7 +123,8 @@ timeBlockContainer.on('click', '.saveBtn', function(event){
     localStorageEventManager.push(keyAndValueObject)  
   }
  
-//=====Functionality to build and manipulate a persisting local storage array =====================================
+//=====End Functionality to build and manipulate a persisting local storage array =====================================
+
 
 
 
