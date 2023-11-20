@@ -74,9 +74,6 @@ timeBlockContainer.on('click', '.saveBtn', function(event){
     eventPrintLocation = clickTarget.children('textarea.description');
   }  
 
-  
-
-  
  
     getUserInput();
     saveNewEvent();
@@ -104,24 +101,31 @@ timeBlockContainer.on('click', '.saveBtn', function(event){
   //will iterate through items in local and set its key and value pairs to variables
   function siftLocalStorage() {
     for (i=0; i < localStorage.length; i++){
+
+      var keyAndValueObject = {}
+
       var storageEventValue = localStorage.getItem(localStorage.key(i))
       var storageEventKey = localStorage.key(i)
-      console.log("Storage Event Value("+ i + "): " + storageEventValue)
-      console.log("Storage Event Key("+ i + "): " + storageEventKey)
-      
-    }
+      // console.log("Storage Event Value("+ i + "): " + storageEventValue)
+      // console.log("Storage Event Key("+ i + "): " + storageEventKey)
 
+      keyAndValueObject.key = storageEventKey
+      keyAndValueObject.value = storageEventValue
+
+      console.log(keyAndValueObject)
+    }
+      // console.log(keyAndValueObject)
   }
 
-
-
-  //object to be used for local storage(persisting)
+  //array to be used for local storage(persisting)
   localStorageEventManager = [];
   var managerObjectKey;
   var managerObjectValue;
 
   //will set local user input key and values into variables
   function getFromLocal() {
+
+    
     managerObjectKey = localStorage.getItem("Timeblock: hour-09");
     console.log(managerObjectKey)
     managerObjectValue = localStorage.getItem("userInputValue")
