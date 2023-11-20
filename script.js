@@ -70,7 +70,8 @@ timeBlockContainer.on('click', '.saveBtn', function(event){
  
     getUserInput();
     saveNewEvent();
-    getFromLocal() 
+    siftLocalStorage()
+    // getFromLocal() 
 });
    
 
@@ -105,13 +106,20 @@ timeBlockContainer.on('click', '.saveBtn', function(event){
   //will push local variables items to the event manager
   function localToManager() {
 
-
-
-
   }
   
 
-  console.log(localStorage)
+
+
+  //will iterate through items in local
+  function siftLocalStorage() {
+    for (i=0; i < localStorage.length; i++){
+      
+    }
+
+  }
+
+  console.log(localStorage.getItem(localStorage.key(1)))
 
  
     //1)need code that will save written value into the timeblocks
