@@ -82,7 +82,7 @@ timeBlockContainer.on('click', '.saveBtn', function(event){
     // getFromLocal() 
 });
 
-
+  //=====Functionality to build and manipulate a persisting local storage array =====================================
 
  //array to be used for local storage(persisting)
  var localStorageEventManager = [];
@@ -117,7 +117,7 @@ timeBlockContainer.on('click', '.saveBtn', function(event){
     localStorageEventManager.push(keyAndValueObject)  
   }
  
-
+//=====Functionality to build and manipulate a persisting local storage array =====================================
 
 
 
