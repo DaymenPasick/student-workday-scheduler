@@ -9,8 +9,14 @@ $('#currentDate').text(currentDate);
 $('#currentDay').text(currentDay);
 
 
+
+
+
+
 // writeToTextArea();
 manipulateTimeBoxes();
+
+
 
   //====Start functionality to handle user input data/events===============================================================
 
@@ -63,10 +69,10 @@ timeBlockContainer.on('click', '.saveBtn', function(event){
     
     //if statement will varify user input into the timeblock text-areas
     if (userInput === undefined || userInput === null || userInput === " " || userInput === "") {
-      console.log("No Input Entered")
+      // console.log("No Input Entered")
       // console.log("Clicked Timeblock ID: " + clickTargetId)
     } else {
-      console.log("User Input: " + userInput);
+      // console.log("User Input: " + userInput);
       // console.log("Clicked Timeblock ID: " + clickTargetId)
     }
 
@@ -107,7 +113,6 @@ timeBlockContainer.on('click', '.saveBtn', function(event){
   function manipulateLocalStorage() {
     for (i=0; i < localStorage.length; i++){
       
-
       //will set variables based off local storage input data
       var storageEventValue = localStorage.getItem(localStorage.key(i))
       var storageEventKey = localStorage.key(i)
@@ -116,13 +121,10 @@ timeBlockContainer.on('click', '.saveBtn', function(event){
       keyAndValueObject.key = storageEventKey
       keyAndValueObject.value = storageEventValue
       // console.log(keyAndValueObject.value)
-      console.log("key" + storageEventKey)
-      console.log(storageEventValue)
-      
-
+      console.log("key: " + storageEventKey)
+      console.log("value: " + storageEventValue)
       
     }
-    // pushLocalToEventManager()
     //test for updated content of event manager array
     console.log("updated Event Manager Array: " + localStorageEventManager)
   }
@@ -132,6 +134,7 @@ timeBlockContainer.on('click', '.saveBtn', function(event){
   function pushLocalToEventManager() {
     localStorageEventManager.push(keyAndValueObject)  
   }
+  pushLocalToEventManager()
 
   function sendEventManagerToLocal() {
     localStorage.setItem("eventManager", JSON.stringify(localStorageEventManager))
@@ -146,7 +149,7 @@ timeBlockContainer.on('click', '.saveBtn', function(event){
   function parseEventManager() {
     var retrievedEventManager = JSON.parse(localStorage.getItem("eventManager"));
     // var retrievedEventManagerObject = retrievedEventManager
-    console.log(retrievedEventManager)
+    // console.log(retrievedEventManager)
   }
 
   parseEventManager()
