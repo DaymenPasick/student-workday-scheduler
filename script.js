@@ -85,7 +85,7 @@ timeBlockContainer.on('click', '.saveBtn', function(event){
 
   //will save to local storage w/ Key:timeblock IDs value:user event input
  function saveNewEvent() {
-  localStorage.setItem("Timeblock: " + timeBlockKey, "New Event: " + userInputValue);
+  localStorage.setItem(timeBlockKey, userInputValue);
   }
 
 
@@ -109,7 +109,9 @@ timeBlockContainer.on('click', '.saveBtn', function(event){
 
 
   }
+  
 
+  console.log(localStorage)
 
  
     //1)need code that will save written value into the timeblocks
