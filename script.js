@@ -80,6 +80,7 @@ timeBlockContainer.on('click', '.saveBtn', function(event){
     getUserInput();
     saveNewEvent();
     manipulateLocalStorage();
+    sendEventManagerToLocal()
     writeToTextArea();
     // getFromLocal() 
 });
@@ -122,7 +123,11 @@ timeBlockContainer.on('click', '.saveBtn', function(event){
   function pushLocalToEventManager() {
     localStorageEventManager.push(keyAndValueObject)  
   }
- 
+
+  function sendEventManagerToLocal() {
+    localStorage.setItem("eventManager", JSON.stringify(localStorageEventManager))
+  }
+
 //=====End Functionality to build and manipulate a persisting local storage array =====================================
 
 
