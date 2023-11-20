@@ -65,25 +65,41 @@ timeBlockContainer.on('click', '.saveBtn', function(event){
 
     //puts clicked timeblock and userinput into variables for saveNewItem()
     timeBlockKey = clickTargetId;
-    userInputKey = userInput;
+    userInputValue = userInput;
   }  
  
     getUserInput();
-    saveNewEvent();  
+    saveNewEvent();
+    getFromLocal() 
 });
+   
+
+
+  //will write data into text area
+  function writeToTextArea() {
+
+  }
+
+
+
 
   //will save to local storage w/ Key:timeblock IDs value:user event input
  function saveNewEvent() {
-  localStorage.setItem("Timeblock: " + timeBlockKey, "New Event: " + userInputKey);
+  localStorage.setItem("Timeblock: " + timeBlockKey, "New Event: " + userInputValue);
   }
 
 
   //object to be used for local storage(persisting)
   localStorageEventManager = [];
+  var managerObjectKey;
+  var managerObjectValue;
 
   //will set local user input key and values into variables
   function getFromLocal() {
-
+    managerObjectKey = localStorage.getItem("Timeblock: hour-09");
+    console.log(managerObjectKey)
+    managerObjectValue = localStorage.getItem("userInputValue")
+    console.log(managerObjectValue)
   }
 
   //will push local variables items to the event manager
@@ -110,5 +126,5 @@ timeBlockContainer.on('click', '.saveBtn', function(event){
     //f) need code that will write these object value variables onto the timeblocks in html
 
 
-// $(window).on('load', matchTimeBlockToHour());
+
 //may need this functionality to ensure html loads before jquery executes
