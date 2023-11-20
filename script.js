@@ -8,49 +8,40 @@ var currentDay = dayjs().format('dddd');
 $('#currentDate').text(currentDate);
 $('#currentDay').text(currentDay);
 
-//function will loop through current time blocks and return their id's
-findTimeBlockIds();
 
+manipulateTimeBoxes();
 
-function findTimeBlockIds() {
+//function will manipulate display of timeblocks, 
+//as well as set variables according to their html ID's
+function manipulateTimeBoxes() {
  var timeBlockArray =  $('.time-block-container').children();
 
+//will set variables via jquery to select html timeblock ID
 for (i = 3; i < timeBlockArray.length; i++) {
   // started interval from 3 to account for the 3 undefined value children returns
-  //eventully would like to be able to do this w/o hardcoding the value
   var timeBlockChildren = timeBlockArray[i-3]; //-3 to cutt out the script elements in html
   var childrenLocations = timeBlockArray.eq(i-3);  //-3 to cutt out the script elements in html
   var timeBlockIds = childrenLocations.attr('id');
   var timeBlockIdArray = timeBlockIds.split("-");
   var timeBlockIdHour = timeBlockIdArray[1];
 
-   //for viewing current hour
-  // console.log(currentHour);
-  //for viewing the hour value within html timeblock ID's
-  // console.log(timeBlockIdHour);
 
+    //will set past/present/future classes and styling to each timebox relative
+    //to the current time. Will console log accordingly.
+    if (timeBlockIdHour === currentHour) {
+      console.log("Time-block: " + timeBlockIds + " Set to present");
+      childrenLocations.addClass('present');
 
-  //will set past/present/future classes and styling to each timebox relative
-  //to the current time. Will console log accordingly.
-  if (timeBlockIdHour === currentHour) {
-    console.log("Time-block: " + timeBlockIds + " Set to present");
-    childrenLocations.addClass('present');
+    } else if (timeBlockIdHour < currentHour) {
+      childrenLocations.addClass('past');
+      console.log("Time-block: " + timeBlockIds + " Set to past")
 
-  } else if (timeBlockIdHour < currentHour) {
-    childrenLocations.addClass('past');
-    console.log("Time-block: " + timeBlockIds + " Set to past")
+    } else if (timeBlockIdHour > currentHour) {
+      childrenLocations.addClass('future');
+      console.log("Time-block: " + timeBlockIds + " Set to future")
+    };
 
-  } else if (timeBlockIdHour > currentHour) {
-    childrenLocations.addClass('future');
-    console.log("Time-block: " + timeBlockIds + " Set to future")
   };
-
-  
-
-};
-
-
-
 };
 
 
