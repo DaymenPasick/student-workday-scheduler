@@ -19,12 +19,10 @@ function manipulateTimeBoxes() {
 //will set variables via jquery to select html timeblock ID
 for (i = 3; i < timeBlockArray.length; i++) {
   // started interval from 3 to account for the 3 undefined value children returns
-  var timeBlockChildren = timeBlockArray[i-3]; //-3 to cutt out the script elements in html
   var childrenLocations = timeBlockArray.eq(i-3);  //-3 to cutt out the script elements in html
   var timeBlockIds = childrenLocations.attr('id');
   var timeBlockIdArray = timeBlockIds.split("-");
   var timeBlockIdHour = timeBlockIdArray[1];
-
 
     //will set past/present/future classes and styling to each timebox relative
     //to the current time. Will console log accordingly.
@@ -51,11 +49,9 @@ var timeBlockContainer = $('.time-block-container')
 timeBlockContainer.on('click', '.saveBtn', function(event){
   event.preventDefault();
   var clickTarget = $(this).parent();
-  var clickTargetId = clickTarget.attr("id");
-  //will show in console which timeblock was clicked 
-  console.log("TimeBlock " + clickTargetId + " clicked");
+  var clickTargetId = clickTarget.attr("id"); //will be used for timeBlockKey local storage var
 
-  //function to set userInputKey for local storage
+  //function to set userInputKey vgriable for local storage
   function getUserInput(event) {
     var textAreaLocation = clickTarget.children('textarea.description').val();
     var userInput = textAreaLocation;
@@ -85,14 +81,7 @@ timeBlockContainer.on('click', '.saveBtn', function(event){
 
 
  
-  
-
-
     //1)need code that will save written value into the timeblocks
-
-    //a) need to take in input value from user and set to variables
-    //=====Might be able to use form functionality from Mod5 to facilitate some of this
-    //b) need to have that saved input variables saved onto local storage
 
     //c) need to create object that will take in these local storage values
     // ===========key for the object should be the timeblock id from local
