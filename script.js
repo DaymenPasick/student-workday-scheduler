@@ -9,10 +9,10 @@ $('#currentDate').text(currentDate);
 $('#currentDay').text(currentDay);
 
 
-
+// writeToTextArea();
 manipulateTimeBoxes();
 
-  //====Start Functionality to handle user input data/events===============================================================
+  //====Start functionality to handle user input data/events===============================================================
 
 
   //function will manipulate display of timeblocks, 
@@ -84,12 +84,16 @@ timeBlockContainer.on('click', '.saveBtn', function(event){
     writeToTextArea();
     // getFromLocal() 
 });
-  //====End Functionality to handle user input data/events===============================================================
+      //will save to local storage w/ Key:timeblock IDs value:user event input
+ function saveNewEvent() {
+  localStorage.setItem(timeBlockKey, userInputValue);
+  }
+  //====End functionality to handle user input data/events===============================================================
 
 
 
 
-  //=====Start Functionality to build and manipulate a persisting local storage array =====================================
+  //=====Start functionality to build and manipulate a persisting local storage array =====================================
 
  //array to be used for local storage(persisting)
  var localStorageEventManager = [];
@@ -128,70 +132,35 @@ timeBlockContainer.on('click', '.saveBtn', function(event){
     localStorage.setItem("eventManager", JSON.stringify(localStorageEventManager))
   }
 
-//=====End Functionality to build and manipulate a persisting local storage array =====================================
+  //=====End functionality to build and manipulate a persisting local storage array =====================================
+
+
+  //=====Start functionality to take eventManager object data and print onto timeblocks =================================
+
+    //need to be able to iterate successfully through eventManager
+
+
+    //in this iteration, need to be able to single out key/pair values within eventManager
+
+    //need to be able to somehow match these keys up with the timeblock ids
+
+    //when they match, need to print the value of the matching keys onto the textareas
+    //of the matching time blocks
 
 
 
 
-  //will save to local storage w/ Key:timeblock IDs value:user event input
- function saveNewEvent() {
-  localStorage.setItem(timeBlockKey, userInputValue);
-  }
+
+
+
+
+
+
+
 
   //will write data into text area
   function writeToTextArea() {
     eventPrintLocation.val('Placeholder Event')
   }
-   
+  //=====End functionality to take eventManager object data and print onto timeblocks =================================
 
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
-// function init() {
-//   writeToTextArea()
-// }
-
-  //will set local user input key and values into variables
-  // function getFromLocal() {
-  //   managerObjectKey = localStorage.getItem("Timeblock: hour-09");
-  //   console.log(managerObjectKey)
-  //   managerObjectValue = localStorage.getItem("userInputValue")
-  //   console.log(managerObjectValue)
-  // }
-
-
-
-
-
-
-
- 
-    //1)need code that will save written value into the timeblocks
-
-    //c) need to create object that will take in these local storage values
-    // ===========key for the object should be the timeblock id from local
-    // ===========value for object will be user input from local
-    //d) need to 2 push local storage data into object
-
-    //e) need to set this object as a value to local storage(MUST PERSIST IN LOCAL)
-
-    //d) need code that will take in these object local storage values and set to variables
-
-    //f) need code that will write these object value variables onto the timeblocks in html
-
-
-
-//may need this functionality to ensure html loads before jquery executes
