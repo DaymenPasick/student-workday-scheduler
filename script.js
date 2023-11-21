@@ -18,6 +18,12 @@ manipulateTimeBoxes();
 
 
 
+function init() {
+  writeToTextArea()
+}
+
+
+
   //====Start functionality to handle user input data/events===============================================================
 
 
@@ -80,12 +86,13 @@ timeBlockContainer.on('click', '.saveBtn', function(event){
     timeBlockKey = clickTargetId;
     userInputValue = userInput;
     eventPrintLocation = clickTarget.children('textarea.description');
+    timeBlockLocation = eventPrintLocation;
   }  
 
  
     getUserInput();
     saveNewEvent();
-    manipulateLocalStorage();
+    getLocalStorageData();
     // sendEventManagerToLocal()
     writeToTextArea();  
     // getFromLocal() 
@@ -97,37 +104,56 @@ timeBlockContainer.on('click', '.saveBtn', function(event){
   //====End functionality to handle user input data/events===============================================================
 
 
+  //need to have a call upon initiation to check throughn local (if/than)
 
 
   //=====Start functionality to build and manipulate a persisting local storage array =====================================
 
- //array to be used for local storage(persisting)
- var localStorageEventManager = [];
+var newEventInfo;
+var timeBlockLocation;
 
- //object that will contain passed key/value pairs
- //made from local storage user-input
- var keyAndValueObject = {}
+
 
 
   //will iterate through items in local and set its key and value pairs to variables
-  function manipulateLocalStorage() {
+  function getLocalStorageData() {
     for (i=0; i < localStorage.length; i++){
       
       //will set variables based off local storage input data
       var storageEventValue = localStorage.getItem(localStorage.key(i))
       var storageEventKey = localStorage.key(i)
+      console.log("key: " + storageEventKey)
+      console.log("value: " + storageEventValue)
+      newEventInfo = storageEventValue
 
       //this will populate keyAndValueObject using local storage input data
       // keyAndValueObject.key = storageEventKey
       // keyAndValueObject.value = storageEventValue
       // console.log(keyAndValueObject.value)
-      console.log("key: " + storageEventKey)
-      console.log("value: " + storageEventValue)
+      
       
     }
     //test for updated content of event manager array
     // console.log("updated Event Manager Array: " + localStorageEventManager)
   }
+
+  function writeToTextArea() {
+    timeBlockLocation.val(newEventInfo)
+    // eventPrintLocation.val('Placeholder Event')
+  }
+
+
+
+  
+ //array to be used for local storage(persisting)
+//  var localStorageEventManager = [];
+
+ //object that will contain passed key/value pairs
+ //made from local storage user-input
+//  var keyAndValueObject = {}
+
+
+
 
 
   //will push keyAndValueObject to the localStorageEventManager
@@ -173,8 +199,6 @@ timeBlockContainer.on('click', '.saveBtn', function(event){
 
 
   //will write data into text area
-  function writeToTextArea() {
-    eventPrintLocation.val('Placeholder Event')
-  }
+ 
   //=====End functionality to take eventManager object data and print onto timeblocks =================================
 
