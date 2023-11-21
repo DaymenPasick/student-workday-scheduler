@@ -118,22 +118,22 @@ timeBlockContainer.on('click', '.saveBtn', function(event){
       var storageEventKey = localStorage.key(i)
 
       //this will populate keyAndValueObject using local storage input data
-      keyAndValueObject.key = storageEventKey
-      keyAndValueObject.value = storageEventValue
+      // keyAndValueObject.key = storageEventKey
+      // keyAndValueObject.value = storageEventValue
       // console.log(keyAndValueObject.value)
       console.log("key: " + storageEventKey)
       console.log("value: " + storageEventValue)
       
     }
     //test for updated content of event manager array
-    console.log("updated Event Manager Array: " + localStorageEventManager)
+    // console.log("updated Event Manager Array: " + localStorageEventManager)
   }
 
 
   //will push keyAndValueObject to the localStorageEventManager
-  function pushLocalToEventManager() {
-    localStorageEventManager.push(keyAndValueObject)  
-  }
+  // function pushLocalToEventManager() {
+  //   localStorageEventManager.push(keyAndValueObject)  
+  // }
   pushLocalToEventManager()
 
   function sendEventManagerToLocal() {
