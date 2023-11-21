@@ -14,13 +14,10 @@ $('#currentDay').text(currentDay);
 
 
 // writeToTextArea();
+init();
 manipulateTimeBoxes();
 
 
-
-function init() {
-  writeToTextArea()
-}
 
 
 
@@ -138,11 +135,21 @@ var timeBlockLocation;
   }
 
   function writeToTextArea() {
-    timeBlockLocation.val(newEventInfo)
+    timeBlockLocation.val("hello")
     // eventPrintLocation.val('Placeholder Event')
   }
 
 
+  function init() {
+    // timeBlockPersist();
+  }
+
+  //this will be my init()
+  //needs to iterate through local storage, create variables, then write event to page
+  // function timeBlockPersist() {
+  //   getLocalStorageData();
+  //   writeToTextArea();
+  // }
 
   
  //array to be used for local storage(persisting)
