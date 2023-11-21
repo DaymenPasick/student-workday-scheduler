@@ -86,7 +86,7 @@ timeBlockContainer.on('click', '.saveBtn', function(event){
     getUserInput();
     saveNewEvent();
     manipulateLocalStorage();
-    sendEventManagerToLocal()
+    // sendEventManagerToLocal()
     writeToTextArea();  
     // getFromLocal() 
 });
@@ -134,11 +134,11 @@ timeBlockContainer.on('click', '.saveBtn', function(event){
   // function pushLocalToEventManager() {
   //   localStorageEventManager.push(keyAndValueObject)  
   // }
-  pushLocalToEventManager()
+  // pushLocalToEventManager()
 
-  function sendEventManagerToLocal() {
-    localStorage.setItem("eventManager", JSON.stringify(localStorageEventManager))
-  }
+  // function sendEventManagerToLocal() {
+  //   localStorage.setItem("eventManager", JSON.stringify(localStorageEventManager))
+  // }
 
   //=====End functionality to build and manipulate a persisting local storage array =====================================
 
@@ -146,13 +146,13 @@ timeBlockContainer.on('click', '.saveBtn', function(event){
   //=====Start functionality to take eventManager object data and print onto timeblocks =================================
 
     //need to be able to iterate successfully through eventManager
-  function parseEventManager() {
-    var retrievedEventManager = JSON.parse(localStorage.getItem("eventManager"));
-    // var retrievedEventManagerObject = retrievedEventManager
-    // console.log(retrievedEventManager)
-  }
+  // function parseEventManager() {
+  //   var retrievedEventManager = JSON.parse(localStorage.getItem("eventManager"));
+  //   // var retrievedEventManagerObject = retrievedEventManager
+  //   // console.log(retrievedEventManager)
+  // }
 
-  parseEventManager()
+  // 2
 
     //in this iteration, need to be able to single out key/pair values within eventManager
 
