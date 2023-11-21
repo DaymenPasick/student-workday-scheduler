@@ -83,7 +83,7 @@ timeBlockContainer.on('click', '.saveBtn', function(event){
     timeBlockKey = clickTargetId;
     userInputValue = userInput;
     eventPrintLocation = clickTarget.children('textarea.description');
-    timeBlockLocation = eventPrintLocation;
+    
   }  
 
  
@@ -98,19 +98,15 @@ timeBlockContainer.on('click', '.saveBtn', function(event){
  function saveNewEvent() {
   localStorage.setItem(timeBlockKey, userInputValue);
   }
+
+  function writeToTextArea() {
+    eventPrintLocation.val("hello")
+    // eventPrintLocation.val('Placeholder Event')
+  }
   //====End functionality to handle user input data/events===============================================================
 
 
-  //need to have a call upon initiation to check throughn local (if/than)
-
-
   //=====Start functionality to build and manipulate a persisting local storage array =====================================
-
-var newEventInfo;
-var timeBlockLocation;
-
-
-
 
   //will iterate through items in local and set its key and value pairs to variables
   function getLocalStorageData() {
@@ -119,9 +115,9 @@ var timeBlockLocation;
       //will set variables based off local storage input data
       var storageEventValue = localStorage.getItem(localStorage.key(i))
       var storageEventKey = localStorage.key(i)
-      console.log("key: " + storageEventKey)
-      console.log("value: " + storageEventValue)
-      newEventInfo = storageEventValue
+      // console.log("key: " + storageEventKey)
+      // console.log("value: " + storageEventValue)
+      
 
       //this will populate keyAndValueObject using local storage input data
       // keyAndValueObject.key = storageEventKey
@@ -134,13 +130,45 @@ var timeBlockLocation;
     // console.log("updated Event Manager Array: " + localStorageEventManager)
   }
 
-  function writeToTextArea() {
-    timeBlockLocation.val("hello")
-    // eventPrintLocation.val('Placeholder Event')
+ //need to have a call upon initiation to check through local (if/than)
+
+
+  //variables for persist data function
+  var newEventInfo;
+  var timeBlockLocation;
+  
+
+
+  function persistLocalCheck() {
+  
+    for (i=0; i < localStorage.length; i++){
+      var persistEventKey
+      var persistEventValue
+      persistEventKey = localStorage.key(i);
+      persistEventValue = localStorage.getItem(localStorage.key(i));
+      console.log(persistEventKey)
+      console.log(persistEventValue)
+    }
+
+
   }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
   function init() {
+    persistLocalCheck()
     // timeBlockPersist();
   }
 
