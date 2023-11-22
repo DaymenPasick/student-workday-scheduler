@@ -86,13 +86,10 @@ timeBlockContainer.on('click', '.saveBtn', function(event){
     
   }  
 
- 
     getUserInput();
-    saveNewEvent();
-    getLocalStorageData();
-    // sendEventManagerToLocal()
+    saveNewEvent();         //series of functions involes in save buttons sending
+    getLocalStorageData();  //info to local 
     writeToTextArea();  
-    // getFromLocal() 
 });
       //will save to local storage w/ Key:timeblock IDs value:user event input
  function saveNewEvent() {
@@ -106,7 +103,7 @@ timeBlockContainer.on('click', '.saveBtn', function(event){
   //====End functionality to handle user input data/events===============================================================
 
 
-  //=====Start functionality to build and manipulate a persisting local storage array =====================================
+  //=====Start functionality to write persisting events in timeblocks ============================================
 
   //will iterate through items in local and set its key and value pairs to variables
   function getLocalStorageData() {
@@ -119,14 +116,6 @@ timeBlockContainer.on('click', '.saveBtn', function(event){
     }
   }
 
-  //variables for persist data function
-  var newEventInfo;
-  
-
-  // console.log(timeBlockLocation.eq(i).attr("id"))
-  // console.log(timeBlockLocation)
-  
-  
 
   //will iterate through local storage and create variables accordingly
   function persistLocalCheck() {
@@ -136,62 +125,13 @@ timeBlockContainer.on('click', '.saveBtn', function(event){
       var timeBlockLocation = $('#time-block-container').find("textarea.description");
       persistEventKey = localStorage.key(i);
       persistEventValue = localStorage.getItem(localStorage.key(i));
-      
-      
-      console.log(persistEventKey)
-      // console.log(persistEventValue)
-      newEventInfo = persistEventValue
-      // console.log(newEventInfo)
-      // console.log(timeBlockLocation.eq(i).parent().attr("id"))
+
+      //this call will use the loop iterations to put events onto their correct timeblocks!
       $('#' + persistEventKey).find('textarea.description').text(persistEventValue)
-      // $('#time-block-container').find(persistEventKey).find('textarea.description').text('hi')
-      console.log($('#' + persistEventKey).find('textarea.description'))
-      // console.log($('#time-block-container').find('#hour-' + i).find('textarea.description'))
-      
-
-      //only matches in a certain order via iteration x.x
-    //   if (timeBlockLocation.eq(i).parent().attr("id") === persistEventKey){
-    //     timeBlockLocation.eq(i).text('hello')
-    //   }
+  
     }
-
   }
-
-
-  
-  // console.log($('#time-block-container').find('#hour-09').find('textarea.description'))
-
-
-
-
-  // function persistLocalCheck() {
-  //  var timeBlockLocation = $('#time-block-container').children()
-  //  var textPrintLocation = $('#time-block-container').find("textarea.description")
-  
-  //  //will iterate based off number of timeblocks in html
-  //   for (i=0; i < timeBlockLocation.length; i++){
-  //     persistEventKey = localStorage.key(i);
-  //     persistEventValue = localStorage.getItem(localStorage.key(i));
-
-  //         if (persistEventKey === timeBlockLocation.eq(i).attr("id")){
-  //           textPrintLocation.eq(i).text('placeholder')
-  //         }
-          
-  //   }
-
-  // }
-
-// textPrintLocation.eq(i-3).text(persistEventValue)
-
-
-
-
-
-
-
-
-
-
+  //=====Start functionality to write persisting events in timeblocks ============================================
 
   function init() {
     persistLocalCheck()
