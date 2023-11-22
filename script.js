@@ -1,7 +1,8 @@
 //Script
 
 
-//Household variables
+//will allow for date to be show
+//variables set will be used also to trigger events in manipulateTimeBoxes()
 var currentHour = dayjs().format('H');
 var currentDate = dayjs().format('MM/DD/YYYY');
 var currentDay = dayjs().format('dddd');
@@ -9,20 +10,15 @@ $('#currentDate').text(currentDate);
 $('#currentDay').text(currentDay);
 
 
-
-
-
-
-// writeToTextArea();
+//will allow saved data to persist, function is near bottom of page
 init();
+
+//will iterate through timeblocks and manipulate their css properties
 manipulateTimeBoxes();
 
 
 
-
-
   //====Start functionality to handle user input data/events===============================================================
-
 
   //function will manipulate display of timeblocks, 
   //as well as set variables according to their html ID's
@@ -41,16 +37,13 @@ for (i = 3; i < timeBlockArray.length; i++) {
     //will set past/present/future classes and styling to each timebox relative
     //to the current time. Will console log accordingly.
     if (timeBlockIdHour === currentHour) {
-      // console.log("Time-block: " + timeBlockIds + " Set to present");
       childrenLocations.addClass('present');
 
     } else if (timeBlockIdHour < currentHour) {
       childrenLocations.addClass('past');
-      // console.log("Time-block: " + timeBlockIds + " Set to past")
 
     } else if (timeBlockIdHour > currentHour) {
       childrenLocations.addClass('future');
-      // console.log("Time-block: " + timeBlockIds + " Set to future")
     };
 
   };
@@ -65,18 +58,18 @@ timeBlockContainer.on('click', '.saveBtn', function(event){
   var clickTarget = $(this).parent();
   var clickTargetId = clickTarget.attr("id"); //will be used for timeBlockKey local storage var
 
-  //function to set userInputKey vgriable for local storage
+  //function to set userInputKey variable for local storage
   function getUserInput(event) {
     var textAreaLocation = clickTarget.children('textarea.description').val();
     var userInput = textAreaLocation;
     
     //if statement will varify user input into the timeblock text-areas
     if (userInput === undefined || userInput === null || userInput === " " || userInput === "") {
-      // console.log("No Input Entered")
-      // console.log("Clicked Timeblock ID: " + clickTargetId)
+      console.log("No Input Entered")
+      console.log("Clicked Timeblock ID: " + clickTargetId)
     } else {
-      // console.log("User Input: " + userInput);
-      // console.log("Clicked Timeblock ID: " + clickTargetId)
+      console.log("User Input: " + userInput);
+      console.log("Clicked Timeblock ID: " + clickTargetId)
     }
 
     //puts clicked timeblock and userinput into variables for saveNewItem()
@@ -97,10 +90,10 @@ timeBlockContainer.on('click', '.saveBtn', function(event){
   }
 
   function writeToTextArea() {
-    eventPrintLocation.val("hello")
-    // eventPrintLocation.val('Placeholder Event')
+    eventPrintLocation.val(userInputValue)
   }
   //====End functionality to handle user input data/events===============================================================
+
 
 
   //=====Start functionality to write persisting events in timeblocks ============================================
@@ -115,7 +108,6 @@ timeBlockContainer.on('click', '.saveBtn', function(event){
 
     }
   }
-
 
   //will iterate through local storage and create variables accordingly
   function persistLocalCheck() {
