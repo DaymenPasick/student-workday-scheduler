@@ -155,14 +155,16 @@ timeBlockContainer.on('click', '.saveBtn', function(event){
       console.log(persistEventKey)
       // console.log(persistEventValue)
       newEventInfo = persistEventValue
-      console.log(newEventInfo)
+      // console.log(newEventInfo)
       console.log(timeBlockLocation.eq(i).parent().attr("id"))
       
+      
+      timeBlockLocation
 
-      if (timeBlockLocation.eq(i).attr("id") === persistEventKey){
-        timeBlockLocation.eq(i).text('hello')
-
-      }
+      //only matches in a certain order via iteration x.x
+      // if (timeBlockLocation.eq(i).parent().attr("id") === persistEventKey){
+      //   timeBlockLocation.eq(i).text('hello')
+      // }
       
 
 
