@@ -8,17 +8,17 @@
 
 - Image of event planner
 
-![completed product website screenshot](./assets/imgs/jsQuizmainpage.png)
+![completed product website screenshot](./assets/imgs/Work-Day-Scheduler-empty.png)
 
 
- - Image of Hiscore page
+ - Image of event planner with a few events saved
 
-![completed product website screenshot](./assets/imgs/jsQuizhiscorepage.png)
+![completed product website screenshot](./assets/imgs/Work-Day-Scheduler-events.png)
 
 ## Usage
 
 Here is the link to the live quiz website: 
-https://daymenpasick.github.io/super-secret-code-quiz/
+https://daymenpasick.github.io/student-workday-scheduler/
 
 
 ## License
