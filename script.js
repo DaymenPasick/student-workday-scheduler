@@ -135,7 +135,7 @@ timeBlockContainer.on('click', '.saveBtn', function(event){
 
   //variables for persist data function
   var newEventInfo;
-  var timeBlockLocation = $('#time-block-container').children('textarea.description').val();
+  var timeBlockLocation = $('#time-block-container').find(".description");
   // var timeBlockLocation = $('#time-block-container').children('textarea.description').val();
   
 
