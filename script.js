@@ -135,8 +135,8 @@ timeBlockContainer.on('click', '.saveBtn', function(event){
 
   //variables for persist data function
   var newEventInfo;
-  var timeBlockLocation = $('#time-block-container').find("textarea.description");
-  // timeBlockLocation.val('hello')
+  
+  // console.log(timeBlockLocation)
   
   
 
@@ -144,6 +144,8 @@ timeBlockContainer.on('click', '.saveBtn', function(event){
   function persistLocalCheck() {
   
     for (i=0; i < localStorage.length; i++){
+      var timeBlockLocation = $('#time-block-container').find("textarea.description");
+
       var persistEventKey
       var persistEventValue
       persistEventKey = localStorage.key(i);
@@ -152,19 +154,13 @@ timeBlockContainer.on('click', '.saveBtn', function(event){
       // console.log(persistEventValue)
       newEventInfo = persistEventValue
       console.log(newEventInfo)
+      timeBlockLocation.eq(i).text('hello')
 
-      if (timeBlockLocation.parent()){
 
-        
-      }
-      
-      
     }
 
 
   }
-
-  console.log(timeBlockLocation)
 
 
 
