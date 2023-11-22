@@ -136,6 +136,8 @@ timeBlockContainer.on('click', '.saveBtn', function(event){
   //variables for persist data function
   var newEventInfo;
   
+
+  // console.log(timeBlockLocation.eq(i).attr("id"))
   // console.log(timeBlockLocation)
   
   
@@ -150,11 +152,18 @@ timeBlockContainer.on('click', '.saveBtn', function(event){
       var persistEventValue
       persistEventKey = localStorage.key(i);
       persistEventValue = localStorage.getItem(localStorage.key(i));
-      // console.log(persistEventKey)
+      console.log(persistEventKey)
       // console.log(persistEventValue)
       newEventInfo = persistEventValue
       console.log(newEventInfo)
-      timeBlockLocation.eq(i).text('hello')
+      console.log(timeBlockLocation.eq(i).parent().attr("id"))
+      
+
+      if (timeBlockLocation.eq(i).attr("id") === persistEventKey){
+        timeBlockLocation.eq(i).text('hello')
+
+      }
+      
 
 
     }
