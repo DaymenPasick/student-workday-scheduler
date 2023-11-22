@@ -135,8 +135,9 @@ timeBlockContainer.on('click', '.saveBtn', function(event){
 
   //variables for persist data function
   var newEventInfo;
-  var timeBlockLocation = $('#time-block-container').find(".description");
-  // var timeBlockLocation = $('#time-block-container').children('textarea.description').val();
+  var timeBlockLocation = $('#time-block-container').find("textarea.description").eq(3);
+  timeBlockLocation.val('hello')
+  
   
 
   //will iterate through local storage and create variables accordingly
@@ -151,6 +152,7 @@ timeBlockContainer.on('click', '.saveBtn', function(event){
       // console.log(persistEventValue)
       newEventInfo = persistEventValue
       console.log(newEventInfo)
+      
       
     }
 
@@ -173,6 +175,7 @@ timeBlockContainer.on('click', '.saveBtn', function(event){
 
   function init() {
     persistLocalCheck()
+    // timeBlockLocation.text("hello")
     // timeBlockPersist();
   }
 
