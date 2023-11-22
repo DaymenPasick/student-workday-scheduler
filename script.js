@@ -154,25 +154,26 @@ timeBlockContainer.on('click', '.saveBtn', function(event){
 
 
 
-    //will iterate through local storage and create variables accordingly
+
 
   function persistLocalCheck() {
    var timeBlockLocation = $('#time-block-container').children()
    var textPrintLocation = $('#time-block-container').find("textarea.description")
   
+   //will iterate based off number of timeblocks in html
     for (i=0; i < timeBlockLocation.length; i++){
       persistEventKey = localStorage.key(i);
       persistEventValue = localStorage.getItem(localStorage.key(i));
 
           if (persistEventKey === timeBlockLocation.eq(i).attr("id")){
-            textPrintLocation.eq(i).text(persistEventValue)
+            textPrintLocation.eq(i).text('placeholder')
           }
-
+          
     }
 
   }
 
-
+// textPrintLocation.eq(i-3).text(persistEventValue)
 
 
 
